@@ -1,0 +1,42 @@
+{
+  "eventinfo": [{
+    "eventid":"1",
+   "eventname":"Kids Cycling Chanmpionship",
+   "eventtitle":"Kids Talent Identification Chanmpionship - 2022",
+   "season":"Season - 02",
+   "registrationlastdate":"01 December 2022",
+    "agegroup":"8-9,9-10,10-12,13-14",
+    "registrationfee":"200",
+     "competiondate":"15 December 2022",
+     "venu":"LB Stadium",
+     "timings":"10.00 AM to 12.00 Noon, 2.00 PM to 4.00 PM",
+     "sponsor":"GMR Infra",
+     "organizersshort":"MTCWA",
+     "organization":"Dr Maxwell Trevor Cycling Welfare Assoction",
+     "companyid":"141/2020",
+     "contactnumber":"9849098490,9123491234,1234309876",
+     "decription":"Description about Organizaners",
+     "images":"cyclingbannber.png",
+     "mapurl":"https://goo.gl/maps/CztyEtYA1rYYsyYj6"
+    },
+    {
+      "eventid":"2",
+     "eventname":"Kids Cycling Chanmpionship",
+     "eventtitle":"Kids Talent Identification Chanmpionship - 2022",
+     "season":"Season - 01",
+     "registrationlastdate":"01 December 2022",
+      "agegroup":"8-9,9-10,10-12,13-14",
+      "registrationfee":"200",
+       "competiondate":"10 December 2022",
+       "venu":"LB Stadium",
+       "timings":"10.00 AM to 12.00 Noon, 2.00 PM to 4.00 PM",
+       "sponsor":"GMR Infra",
+       "organizersshort":"MTCWA",
+       "organization":"Dr Maxwell Trevor Cycling Welfare Assoction",
+       "companyid":"141/2020",
+       "contactnumber":"9849098490,9123491234,1234309876",
+       "decription":"Description about Organizaners",
+       "images":"cyclingbannber.png",
+       "mapurl":"https://goo.gl/maps/CztyEtYA1rYYsyYj6"
+      }]
+}
