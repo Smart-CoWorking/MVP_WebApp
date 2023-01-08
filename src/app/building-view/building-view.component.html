@@ -1,0 +1,31 @@
+<style>
+  body { margin: 0; padding: 0; }
+  #map { top: 0; bottom: 0; width: 1400px;height:650px !important; margin-top:0px;}
+  </style>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
+<div class="row rowstyle">
+
+      <!-- <div class="contentmain col-lg-12 col-md-12 col-sm-12" [ngStyle]="{'min-width':divwidth}"> -->
+        <!-- <div class="map" id="map"></div> -->
+        <!-- <input type="file" name="load" id="file-input" /> -->
+        <canvas id="three-canvas" style="background-color:#FFFFFF !important;border-radius: 10px;
+                                          width: 1500px !important;
+                                          height: 620px !important;
+                                          margin-top: 70px;
+                                          margin-left: 15px;
+                                          margin-right: 15px;
+                                          margin-bottom:50px;" (click)="pick($event)">
+        </canvas>
+      <!-- </div> -->
+      <!--Content Main end tag -->
+<div class="propertiesdiv" *ngIf="showPropertiesDiv">
+ <span class="labelstyle"> Building Name:</span> {{buildingName}}<br/>
+  <hr/>
+  Zone: {{zone}}<br/>
+  <hr/>
+  Floor: {{floor}}<br/>
+
+</div>
+</div>
+

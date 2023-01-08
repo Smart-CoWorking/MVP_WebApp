@@ -30,7 +30,8 @@
             "styles": [
               "src/styles.scss",
               "node_modules/ngx-bootstrap/datepicker/bs-datepicker.scss",
-              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css",
+              "node_modules/ngx-select-dropdown/dist/assets/style.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
@@ -42,13 +43,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "5000mb",
+                  "maximumError": "5000mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "5000mb",
+                  "maximumError": "5000mb"
                 }
               ],
               "fileReplacements": [

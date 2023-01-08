@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BuildingViewComponent } from './building-view/building-view.component';
 
 @Component({
   selector: 'app-root',
