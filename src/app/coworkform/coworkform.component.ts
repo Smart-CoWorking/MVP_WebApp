@@ -13,7 +13,6 @@ import { ReplaySubject, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { SelectDropDownService } from "ngx-select-dropdown";
 import { UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -23,7 +22,11 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms"
 })
 export class CoworkformComponent implements OnInit,AfterViewInit {
   myControl = new FormControl('');
-  options: string[] = ['Bangalore','Chennai',  'Kolkota', 'Mumbai','New Delhi' ];
+  showGlobe:boolean = true;
+  showLocationDetails: boolean = false;
+  options: string[] = ['India'];
+  stateOptions: string[] = [];
+  districtOptions: string[] = [];
   singleSelect: any = [];
   stringOptions = ['Bangalore','Chennai',  'Kolkota', 'Mumbai','New Delhi'];
   config = {
@@ -39,7 +42,7 @@ export class CoworkformComponent implements OnInit,AfterViewInit {
   faContactCard=faContactCard;faBell=faBell;faShop=faShop;faGears=faGears;faHeadset=faHeadset;
   faRoadBarrier=faRoadBarrier;faUnlockKeyhole=faUnlockKeyhole;faUsersViewfinder=faUsersViewfinder;
 
-  public map!: mapboxgl.Map;
+  // public map!: mapboxgl.Map;
 
   style = 'mapbox://styles/mapbox/streets-v11';
   lat = 12.884851;
@@ -56,7 +59,6 @@ export class CoworkformComponent implements OnInit,AfterViewInit {
   getScreenWidth!: number;
   getScreenHeight!: number;
   divheight!: any;
-
 
 
    geojson = {
@@ -105,11 +107,10 @@ export class CoworkformComponent implements OnInit,AfterViewInit {
     };
   divwidth!: string;
   resetOption!: string[];
-
+  public map!: mapboxgl.Map;
 
   constructor( private router: Router,
-                private fromBuilder: UntypedFormBuilder,
-                private drodownService: SelectDropDownService) { }
+                private fromBuilder: UntypedFormBuilder) { }
   ngAfterViewInit(): void {
 
   }
@@ -124,6 +125,7 @@ export class CoworkformComponent implements OnInit,AfterViewInit {
   }
 
   ngOnInit(): void{
+
     this.resetOption = [this.options[0]];
     this.getScreenWidth = window.innerWidth;
     this.getScreenHeight = window.innerHeight;
@@ -241,20 +243,20 @@ showDestination(destination: any) {
     let el: any;
     // Add markers to the map.
     for (const marker of this.geojson.features) {
-                                                          // Create a DOM element for each marker.
-                                                          el = document.createElement('div');
-                                                          const width = marker.properties.iconSize[0];
-                                                          const height = marker.properties.iconSize[1];
-                                                          el.className = 'marker';
-                                                          el.style.backgroundImage = 'url(assets/img/gpin.png)';
-                                                          el.style.width = `40px`;
-                                                          el.style.height = `40px`;
-                                                          el.style.backgroundSize = '100%';
-                                                          el.style.setProperty('title',marker.properties.title);
-                                                          el.addEventListener('click', () => {
-                                                           this.router.navigateByUrl('/building-view');
-                                                            // this.showBuilding(marker);
-                                                         });
+                // Create a DOM element for each marker.
+                    el = document.createElement('div');
+                    const width = marker.properties.iconSize[0];
+                    const height = marker.properties.iconSize[1];
+                    el.className = 'marker';
+                    el.style.backgroundImage = 'url(assets/img/gpin.png)';
+                    el.style.width = `40px`;
+                    el.style.height = `40px`;
+                    el.style.backgroundSize = '100%';
+                    el.style.setProperty('title',marker.properties.title);
+                    el.addEventListener('click', () => {
+                      this.router.navigateByUrl('/building-view');
+                      // this.showBuilding(marker);
+                });
 
       // Add markers to the map.
       new mapboxgl.Marker(el)
@@ -268,6 +270,17 @@ showDestination(destination: any) {
 
 searchChange(event:any) {
   console.log(event);
-  this.showDestination(event.value);
+  console.log(event.option);
+  this.showDestination(event.option.value);
+}
+
+selectState(event:any) {
+  console.log(event);
+  console.log(this.stateOptions);
+  this.stateOptions.push('Karnataka');
+}
+selectDistrict(event:any) {
+  console.log(event);
+  this.districtOptions.push('Bangalore');
 }
 }

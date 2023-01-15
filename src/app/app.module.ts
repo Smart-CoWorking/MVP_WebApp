@@ -1,8 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgImageSliderModule } from 'ng-image-slider';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,12 +11,10 @@ import { CoworkingdashboardComponent } from './coworkingdashboard/coworkingdashb
 import { CoworkformComponent } from './coworkform/coworkform.component';
 import { BuildingViewComponent } from './building-view/building-view.component';
 import { CoworkmenuComponent } from './common/coworkmenu/coworkmenu.component';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { SelectDropDownModule } from 'ngx-select-dropdown'
+import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { LocationDetailsComponent } from './location-details/location-details.component';
+import { LeafletModule  } from '@asymmetrik/ngx-leaflet'
 
 @NgModule({
   declarations: [
@@ -25,22 +22,19 @@ import { SelectDropDownModule } from 'ngx-select-dropdown'
     CoworkingdashboardComponent,
     CoworkformComponent,
     BuildingViewComponent,
-    CoworkmenuComponent
+    CoworkmenuComponent,
+    LocationDetailsComponent
   ],
   imports: [
-    BrowserModule, MatToolbarModule,
+    BrowserModule,
     AppRoutingModule,
-    NgImageSliderModule,SelectDropDownModule,
-    FontAwesomeModule,MatSelectModule,
-    MatButtonModule,
-    MatFormFieldModule,MatAutocompleteModule,
-    HttpClientModule,
+    FontAwesomeModule,
+    HttpClientModule,AngularMaterialModule,
     ReactiveFormsModule,FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,LeafletModule
   ],
-  exports: [
-
-  ],
-  bootstrap: [AppComponent]
+  exports: [],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

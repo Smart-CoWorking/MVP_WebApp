@@ -6,10 +6,43 @@
 
       <div class="contentmain col-lg-12 col-md-12 col-sm-12" [ngStyle]="{'min-height':divheight,'min-width':divwidth}">
         <div class="map" id="map"></div>
-        <div class="mgl-map-overlay" style="width:300px;">
 
-          <ngx-select-dropdown [instanceId]="'dropdown_1'" (change)="searchChange($event)" tabindex="0"
-          [multiple]="false" [(ngModel)]="singleSelect" [config]="config" [options]="options"></ngx-select-dropdown>
+                </div>
+      <div class="mgl-map-overlay" style="width: 300px;
+                                          background-color: white;
+                                          padding: 10px;
+                                          padding-left: 25px;
+                                          margin: 10px;">
+          <mat-form-field>
+            <input type="text" placeholder="Select Country" matInput [formControl]="myControl"
+                 [matAutocomplete]="auto">
+               <mat-autocomplete #auto="matAutocomplete"  (optionSelected)="selectState($event)">
+                 <mat-option *ngFor="let option of options" [value]="option">
+                   {{option}}
+                </mat-option>
+            </mat-autocomplete>
+         </mat-form-field>
+
+         <mat-form-field>
+          <input type="text" placeholder="Select State" matInput [formControl]="myControl"
+               [matAutocomplete]="matAutoState">
+             <mat-autocomplete #matAutoState="matAutocomplete"  (optionSelected)="selectDistrict($event)">
+               <mat-option *ngFor="let state of stateOptions" [value]="state">
+                 {{state}}
+              </mat-option>
+          </mat-autocomplete>
+       </mat-form-field>
+       <mat-form-field>
+        <input type="text" placeholder="Select City" matInput [formControl]="myControl"
+             [matAutocomplete]="autoCity">
+           <mat-autocomplete #autoCity="matAutocomplete" (optionSelected)="searchChange($event)">
+             <mat-option *ngFor="let city of districtOptions" [value]="city">
+               {{city}}
+            </mat-option>
+        </mat-autocomplete>
+     </mat-form-field>
+          <!-- <ngx-select-dropdown [instanceId]="'dropdown_1'" (change)="searchChange($event)" tabindex="0"
+          [multiple]="false" [(ngModel)]="singleSelect" [config]="config" [options]="options"></ngx-select-dropdown> -->
          <!-- <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Property Locations
@@ -24,6 +57,3 @@
           <button type="button" class="btn btn-success" style="margin-top:10px;" (click)="showDestination('delhi')">New Delhi</button> -->
         </div>
       </div> <!-- Content Main end tag-->
-
-</div>
-
